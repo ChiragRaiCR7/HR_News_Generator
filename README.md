@@ -1,4 +1,4 @@
-# HR News Intelligence Dashboard
+# HR News Generator
 
 A Streamlit application that aggregates and displays the latest HR news using SerpAPI and Gemini API. This solution provides a clean, interactive dashboard for HR professionals to stay updated with industry trends.
 
@@ -95,3 +95,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+Latest HR news using AI-powered research, content generation, and optimization."
+>>>>>>> 42a61ce0e4bfdf33071d8fa738d7180b873d1fb9
