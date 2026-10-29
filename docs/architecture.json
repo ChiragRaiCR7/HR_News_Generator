@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "HR News Intelligence architecture",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "spa", "type": "frontend", "label": "Vue 3 SPA", "sublabel": "TypeScript + Vite", "pos": [40, 300], "size": [140, 64] },
+    { "id": "api", "type": "backend", "label": "FastAPI", "sublabel": "/api + static SPA", "pos": [270, 300], "size": [140, 64], "tag": "127.0.0.1:8000" },
+    { "id": "pipeline", "type": "backend", "label": "Refresh pipeline", "sublabel": "one asyncio task", "pos": [500, 300], "size": [150, 64] },
+    { "id": "serp", "type": "external", "label": "SerpAPI", "sublabel": "Google News search", "pos": [760, 300], "size": [150, 64] },
+    { "id": "gemini", "type": "external", "label": "Gemini API", "sublabel": "schema-bound JSON", "pos": [760, 460], "size": [150, 64] },
+    { "id": "db", "type": "database", "label": "SQLite", "sublabel": "WAL: articles, runs", "pos": [385, 120], "size": [150, 64] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Single process (uvicorn)", "wraps": ["api", "pipeline", "db"] }
+  ],
+  "connections": [
+    { "id": "spa-api", "from": "spa", "to": "api", "label": "fetch JSON", "variant": "emphasis" },
+    { "id": "api-pipeline", "from": "api", "to": "pipeline", "label": "202 start" },
+    { "id": "pipeline-serp", "from": "pipeline", "to": "serp", "label": "search" },
+    { "id": "pipeline-gemini", "from": "pipeline", "to": "gemini", "label": "batch analyze", "fromSide": "bottom", "toSide": "left" },
+    { "id": "api-db", "from": "api", "to": "db", "label": "read", "fromSide": "top", "toSide": "left" },
+    { "id": "pipeline-db", "from": "pipeline", "to": "db", "label": "upsert", "fromSide": "top", "toSide": "right" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Request path", "items": ["SPA polls run status, then reads feed and insights", "Filters live in the URL query"] },
+    { "dot": "emerald", "title": "Refresh run", "items": ["URL dedup before any analysis", "Batched Gemini calls, bounded retries", "Run record keeps counts and errors"] },
+    { "dot": "rose", "title": "Trust boundary", "items": ["Article text is untrusted model input", "Output validated, rendered as text only", "API keys from env, never logged"] }
+  ]
+}

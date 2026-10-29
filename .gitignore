@@ -45,3 +45,15 @@ env/
 # Miscellaneous
 .DS_Store
 Thumbs.db
+
+# Rewrite (v2)
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+node_modules/
+frontend/dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
