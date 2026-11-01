@@ -1,0 +1,37 @@
+<!-- @dsCard group="Colors" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Colors</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{padding:24px;font-family:var(--font-sans), system-ui, sans-serif}
+h1{font-family:var(--font-serif), Georgia, serif;font-size:var(--text-xl);margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-block:12px}
+.sw{inline-size:120px;font-size:var(--text-xs);color:var(--ink-2)}
+.sw i{display:block;block-size:48px;border-radius:var(--radius);border:1px solid var(--rule);margin-block-end:6px}
+.pill{font-size:var(--text-xs);padding:2px 8px;border-radius:999px}
+</style>
+</head>
+<body>
+<h1>Colors</h1>
+<p class="muted">All tokens use light-dark() and follow the OS scheme.</p>
+<div class="row">
+<div class="sw"><i style="background:var(--surface-1)"></i>surface-1</div>
+<div class="sw"><i style="background:var(--surface-2)"></i>surface-2</div>
+<div class="sw"><i style="background:var(--ink-1)"></i>ink-1</div>
+<div class="sw"><i style="background:var(--ink-2)"></i>ink-2</div>
+<div class="sw"><i style="background:var(--ink-3)"></i>ink-3</div>
+<div class="sw"><i style="background:var(--accent)"></i>accent</div>
+</div>
+<p><strong>Sentiment (validated diverging set: CVD ΔE ≥ 8.4, ≥ 3:1 on surface)</strong></p>
+<div class="row">
+<div class="sw"><i style="background:var(--positive)"></i>positive</div>
+<div class="sw"><i style="background:var(--neutral)"></i>neutral</div>
+<div class="sw"><i style="background:var(--negative)"></i>negative</div>
+<div class="sw"><i style="background:var(--unanalyzed)"></i>unanalyzed</div>
+</div>
+</body></html>

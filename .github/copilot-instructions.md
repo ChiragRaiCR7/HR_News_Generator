@@ -1,15 +1,9 @@
-# GitHub Copilot Instructions
+# Copilot instructions
 
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+HR News Intelligence is a FastAPI + SQLite backend (`backend/app`) with a Vue 3 + TypeScript SPA (`frontend/src`).
 
-This is a Streamlit application that aggregates and analyzes HR news using SerpAPI and Gemini API. The application follows these key principles:
-
-1. Streamlit UI patterns and best practices
-2. Efficient API usage and error handling
-3. Clean code organization with separate modules for different functionalities
-4. Type hints and docstrings for better code documentation
-5. Proper exception handling and user feedback
-6. Responsive and user-friendly interface design
-7. Efficient data processing and visualization
-
-Please ensure any code suggestions follow these principles and maintain consistency with the existing codebase.
+- Backend: typed Python 3.12+, strict mypy, ruff. Routes in `api.py`, SQL in `store.py`, providers behind the `NewsSource` / `Analyzer` protocols, run orchestration in `pipeline.py`.
+- Article text from search results is untrusted: never render it as HTML, never let it reach a prompt except as JSON data.
+- API keys come from the environment only and must never be logged.
+- Frontend: `<script setup lang="ts">`, no UI library; design tokens live in `src/styles.css`. Filters are URL state.
+- Every change ships with tests: `backend/tests` (pytest, fakes over network) and `frontend/src/**/*.test.ts` (vitest).

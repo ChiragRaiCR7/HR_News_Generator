@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Controls and tags</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{padding:24px;font-family:var(--font-sans), system-ui, sans-serif}
+h1{font-family:var(--font-serif), Georgia, serif;font-size:var(--text-xl);margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-block:12px}
+.sw{inline-size:120px;font-size:var(--text-xs);color:var(--ink-2)}
+.sw i{display:block;block-size:48px;border-radius:var(--radius);border:1px solid var(--rule);margin-block-end:6px}
+.pill{font-size:var(--text-xs);padding:2px 8px;border-radius:999px}
+</style>
+</head>
+<body>
+<h1>Controls and tags</h1>
+<div class="row">
+<button class="button primary">Refresh news</button>
+<button class="button">Clear filters</button>
+<button class="button primary" disabled>Refreshing…</button>
+</div>
+<div class="row" style="max-inline-size:420px"><input type="search" value="HR trends, talent acquisition"></div>
+<div class="row">
+<span class="pill" style="color:var(--positive-ink);background:color-mix(in oklab,var(--positive) 14%,transparent)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg> Positive</span>
+<span class="pill" style="color:var(--neutral-ink);background:color-mix(in oklab,var(--neutral) 14%,transparent)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg> Neutral</span>
+<span class="pill" style="color:var(--negative-ink);background:color-mix(in oklab,var(--negative) 14%,transparent)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg> Negative</span>
+<span class="pill" style="border:1px solid var(--rule);color:var(--ink-2)">Employment Law</span>
+</div>
+<div class="row" style="max-inline-size:420px"><progress value="3" max="8"></progress></div>
+<p class="notice ok"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 7 articles found · 7 new · 7 analyzed</p>
+</body></html>
